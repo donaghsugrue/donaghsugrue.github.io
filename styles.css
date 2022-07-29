@@ -1,0 +1,505 @@
+/* GENERIC TO THE ENTIRE SITE */
+/*___________________________________________________________________________________________*/
+/* variables */
+
+:root {
+    --dark-color: #2b2b2b;
+    --light-color: #cccccc;
+    --accent-color-1: #559ad3;
+    --accent-color-2: #a0e1ff;
+    --accent-color-3: #c88d75;
+    --accent-color-4: #ffde93;
+}
+
+* {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    font-family: "Monaco", "Menlo", "Consolas", "Droid Sans Mono", "Inconsolata", "Courier New", monospace;
+}
+
+/* @font-face {
+    font-family: ___;
+    src: url("___") format("___")
+} */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+/* SECTION SPECIFIC STUFF */
+/*___________________________________________________________________________________________*/
+/* Generically specific to tags*/
+
+main {
+    margin: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    margin-top: 5%;
+    width: 80%;
+}
+
+main > p {
+    
+    margin-bottom: 5%
+}
+
+p {
+    text-align: justify;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+section {
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+    /* remove underscore from hyperlinks, set colouration here as well. This does change in subsequent CSS. */
+a {
+    text-decoration: none;
+    color: var(--accent-color-1);
+}
+
+    /* Remove bullet points from both header and footer lists*/
+ul {
+    list-style-type: none;
+}
+
+form {
+    margin: auto;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+}
+
+
+
+
+
+
+
+/* SECTION SPECIFIC STUFF */
+/*___________________________________________________________________________________________*/
+/* Specific to Header */
+
+/* header {
+    background-color: var(--dark-color);
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+} */
+
+    /* CSS specific to the logo in the top left */
+header img {
+    object-fit: contain;
+    /* max-height: 100px; */
+    /* max-width: 100px; */
+
+}
+
+    /* Header navigation CSS */
+.headnav {
+    float: right;
+}
+
+.headli .current{
+    color: var(--accent-color-3);
+    background-color: var(--light-color);
+}
+
+.headli a:hover {
+    animation-name: headanimation;
+    animation-duration: 0.5s;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Specific to Footer */
+
+footer, footer nav, footer figure, footer figcaption, footer a, footer small {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+footer nav {
+    justify-content: center;
+}
+
+footer figure {
+    justify-content: center;
+
+    border-color: var(--light-color); 
+
+    width: 7em;
+
+    padding: 1em;
+    border-style: solid;
+    border-width: 5px;
+}
+
+footer figure:hover {
+    border-color: var(--dark-color);
+
+    animation-name: footanimation;
+    animation-duration: 1s;
+
+    padding: 1em;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.logoLink {
+    display: block;
+    margin: auto;
+    background-color: var(--light-color);
+    object-fit: contain;
+    height: 2em;
+    max-height: 200px;
+    width: 2em;
+    max-width: 200px;
+}
+
+small {
+    display: block;
+    text-align: center;
+    font-size: 0.5em;
+    padding-bottom: 1em;
+}
+
+
+
+
+
+
+
+/* SINGLE PAGE SPECIFIC STUFF */
+/*___________________________________________________________________________________________*/
+/* Specific to graphics.html */
+
+.images {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.images li {
+    display: inline;
+    vertical-align: middle;
+}
+
+.images li img {
+    object-fit: contain;
+    width: 25em;
+    border-style: solid;
+    border-color: var(--dark-color);
+}
+
+.messyng {
+    object-fit: contain;
+    max-height: 200px;
+}
+
+.images li img:hover {
+    border-style: solid;
+    border-color: var(--accent-color-3);
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Specific to audio.html */
+
+audio {
+    display: block;
+    margin: auto;
+    width: 75%;
+    color: var(--dark-color);
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Specific to 3d.html */
+
+/* I want the lower 3 model viewers to display side by side on desktop, but vertically on mobile */
+@media only screen and (max-width: 1080px) {
+    div {
+        display: block;
+    }
+    
+    .lisselton, #eldritch {
+        height: 15em;
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .lisselton, #eldritch {
+        height: 25em;
+        width: 100%;
+    }
+}
+
+
+.lisselton, #eldritch {
+    padding-bottom: 5em;
+}
+
+.lisselton figcaption {
+    text-align: center;
+}
+
+model-viewer {
+    height: 100%;
+    width: 100%;    
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Specific to contact.html */
+
+aside {
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+form {
+    width: 40%;
+    padding-bottom: 10%;
+	align-items: center;
+}
+
+input, textarea {
+    display: block;
+    margin-bottom: 1em;
+}
+
+#fname, #email, #subject, textarea {
+    width: 100%;
+}
+
+textarea {
+    height: 10em;
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Specific to page_not_found.html */
+
+#bring_me_home {
+    display: flex;
+    margin: 0 auto;
+}
+
+#sorry {
+    text-align: center;
+}
+
+#girl_from {
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+/* TRANSITIONS, PSEUDOCLASSES, MEDIA QUERIES AND EXTRA STUFF */
+/*___________________________________________________________________________________________*/
+/* header & main anchor psuedo classes */
+
+a:link {
+    color: var(--accent-color-1);
+}
+
+a:visited {
+    color: var(--accent-color-2);
+}
+
+a:hover {
+    color: var(--accent-color-3);
+}
+
+a:active {
+    color: var(--light-color);
+}
+
+
+/*___________________________________________________________________________________________*/
+/* footer anchor psuedo classes */
+
+footer > a:link {
+    color: var(--dark-color);
+}
+
+footer > a:visited {
+    color: var(--accent-color-3);
+}
+
+footer > a:hover {
+    color: var(--accent-color-1);
+}
+
+footer > a:active {
+    color: var(--dark-color);
+}
+
+
+/*___________________________________________________________________________________________*/
+/* animations */
+
+@keyframes headanimation {
+    0%   {
+        background: var(--dark-color);
+        color: var(--light-color);
+    }
+    100% {
+        background: var(--light-color);
+        color: var(--dark-color);
+    }
+}
+
+@keyframes footanimation {
+    0%   {
+        border-color: var(--light-color);
+    }
+    100% {
+        border-color: var(--dark-color);
+    }
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Media queries */
+
+@media only screen and (max-width: 1080px) {
+
+    /* have header and footer navigations display vertically rather than horizontally on mobile */
+    nav, nav ul {
+        display: block;
+        margin-right: 1em;
+    }
+
+    /* remove padding on list items in the header navigation on mobile*/
+    nav ul li {
+        padding: 0em;
+        text-align: right;
+    }
+
+    .headli a {
+        padding: 0em;
+    }
+
+    footer figure {
+        margin: auto;
+    }
+
+    /* increase image size on graphics.html to aid visibility on smaller devices */
+    .images li img {
+        height: 70%;
+        width: 70%;
+    }
+
+    /* change the main page header logo size to be congruent with the nav size on mobile */
+    header img {
+        margin-top: 1em;
+        height: 7em;
+        width: 7em;
+    }
+
+    aside {
+        display: block;
+        width: 60%;
+        text-align: center;
+        line-height: 2.5;
+    }
+
+}
+
+@media only screen and (min-width: 1080px) {
+    /* have the footer navigations display vertically rather than horizontally on phone screens */
+
+    nav, nav ul {
+        display: flex;
+    }
+
+    /* remove padding on list items in the header navigation on mobile*/
+    nav ul li {
+        padding: 1em;  
+    }
+
+    .headli a {
+        padding: 2em;
+    }
+
+    footer nav {
+        justify-content: center;
+    }
+
+    /* increase image size on graphics.html to aid visibility on smaller devices */
+    .images li img {
+        height: 25%;
+        width: 25%;
+    }
+
+    header img {
+        margin-top: 0.5em;
+        height: 4em;
+        width: 4em;
+    }
+
+    aside {
+        display: flex;
+        margin-bottom: 3em;
+        width: 40%;
+    }
+
+}
+
+
+/*___________________________________________________________________________________________*/
+/* Scrollbar customisation */
+/* All ideas and concepts taken from here:   https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar   */
+
+::-webkit-scrollbar {
+    width: 10px;
+    opacity: 0.25;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-color);
+}
