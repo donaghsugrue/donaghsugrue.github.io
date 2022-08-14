@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+
+    <body>
+        <h1>Hello, and welcome to the depth</h1>
+
+        <p>the depth is a new Irish specific marketplace for independent Irish acts to 
+
+            Why not get started by checking out one of our recommendations below.
+
+        </p>
+        
+    </body>
+
+    <table>
+
+        <tr>
+
+            {% for item in rec_list %}
+
+            <td >
+                <a href = "{{ url_for('listing', code=item['code']) }}">
+                    <figure>
+                        <img src = "{{ url_for('static', filename = ''+item['artwork']) }}" alt = "album artwork for {{ item['title'] }}">
+                        <!-- I know StackOverflow is outdated for jinja / flask, but the info from this article was the only way I was successfully able to call an image URL as I did above
+                            https://stackoverflow.com/questions/46869890/how-do-i-put-a-url-for-function-inside-of-a-jinja2-for-loop-if-there-are-two-bra -->
+                    </figure>
+                </a>
+                <h1>
+                    <a href = "{{ url_for('listing', code=item['code']) }}">
+                        {{ item["title"] }}
+                    </a>
+                </h1>
+
+                <h2>
+                        {{ item["artist"] }}
+
+                </h2>
+            </td>
+
+            {% endfor %}
+
+        </tr>
+
+    </table>
+
+{% endblock %}

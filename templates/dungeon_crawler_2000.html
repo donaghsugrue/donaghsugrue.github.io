@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <!-- This should be to the left of the page -->
+    <section>
+        <form>
+            <label for="cheat">
+                Enter cheat codes here
+            </label>
+            <input type="text" name="cheat" id="cheat"/>
+            <span id="cheat_error">        </span>
+            <br/>
+            <input type="submit"/>
+        </form>
+
+        <h1>{{ player }}'s stats</h1>
+        <p id = "outcome"></p>
+        <p id = "timer"></p>
+        <p id = "score"></p>
+        <p id = "room"></p>
+        <p id = "floor"></p>
+        <p id = "active_cheat"></p>
+    </section>
+
+
+
+
+
+    <!-- This should be in the center -->
+    <section>
+    <canvas width="1000" height="1000">
+
+    </canvas>
+
+    
+
+    <!-- <audio id="audio" controls style="display:none">
+        <source src="http://butlerccwebdev.net/support/html5-video/media/soundfile.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio> -->
+    <audio id="audio">
+        <source src="{{ url_for('static', filename='swipe.wav') }}" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
+
+    {{ message }}
+
+    </section>
+
+
+    <section>
+    <!-- This should be on the right of the page -->
+    <table>
+        <caption>
+            LEADERBOARD
+        </caption>
+
+        {% for score in leaderboard %}
+
+            <tr>
+                <td>
+                    {{ loop.index }}
+                </td>
+
+                <td>
+                    {{ score["player_name"] }}
+                </td>
+
+                <td>
+                    {{ score["score"] }}
+                </td>
+
+            </tr>
+           
+        {% endfor %}
+        
+    </table>
+</section>
+
+
+
+
+
+
+
+    <form action="" method="POST" novalidate>
+
+        {{ form.hidden_tag() }}
+
+        {{ form.initial.label }}
+        {{ form.initial() }}
+        <br/>
+        {% for error in form.initial.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br/>
+
+        {{ form.submit() }}
+
+        <p>{{ error }}</p>
+
+    </form>
+</section>
+
+{% endblock %}

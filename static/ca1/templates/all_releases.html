@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    {% if display_all_releases %}
+
+        <table>
+
+            <caption><h1>{{ artist }}'s releases</h1></caption>
+
+            {% for item in display_all_releases %}
+
+                <tr>
+                    <td rowspan = 3>
+                        <figure>
+                            <img src = "{{ url_for('static', filename = ''+item['artwork']) }}" >
+                        </figure>
+                    </td>
+                
+                    <td colspan = 2>
+                        <h1>{{ item["title"] }}</h1>
+                    </td>
+                </tr>
+       
+                <tr>
+                    <td colspan = 2>
+                        {{ item["format"] }}
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <a href = "{{ url_for('edit', code=item['code']) }}">
+                            edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href = "{{ url_for('listing', code=item['code']) }}">
+                            view
+                        </a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+    {% else %}
+
+        <p> You haven't released anything for sale yet. Why don't you get started <a href = "{{ url_for('new')}}">over here?</a> </p>
+
+    {% endif %}
+
+{% endblock %}

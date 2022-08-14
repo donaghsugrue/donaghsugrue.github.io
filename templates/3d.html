@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+        <p>Here are some examples of 3D models I have made in the last year</p>
+        
+        <!-- This was an exporting issue on my end so I have commented it out.
+            <section>
+            <h1>An Eldritch Abomination Logo</h1>
+            <p>This was my first attempt at trying to learn to model in 3D by making an extrusion of a logo I was toying
+            with for a while</p>
+
+                <figure id="eldritch">
+                    <model-viewer
+                        alt="A 3D logo for the producer An Eldritch Abomination"
+                        src="content/3d/eldritch-3d.glb"
+                        shadow-intensity="1"
+                        camera-controls
+                        auto-rotate>
+                    </model-viewer>
+                </figure>
+        </section> -->
+
+        <section>
+            <h1>Lisselton John Street Football 2k2</h1>
+            <p>Do you ever feel overwhelmingly embarrassed by trying to explain a private joke? Yeah, me neither.
+                Anyway, here are 3D models of the box art for a fictional video game myself and some friends are writing
+                a concept album about.
+            </p>
+
+                <div>
+                <!-- I couldn't figure out an alternative way of containing the below 3 figures seperate from the above text and still have "section" maintain semantic integrity.
+                Div's are used so infrequently that I can call this without an ID, which i think is a win?-->
+                    <figure class="lisselton">
+                        <figcaption>Gameboy Advance 3D Model</figcaption>
+                        <model-viewer
+                            alt="If you can see this, then your browser does not support scripts. It is supposed to be a 3D model of the video game Lisselton John Street Football 2k2 for the Gameboy Advance"
+                            src="{{ url_for('static', filename='3d_models/LJSF2k2_gameboy_advance_case.glb') }}"
+                            shadow-intensity="1"
+                            camera-controls
+                            auto-rotate>
+                        </model-viewer>
+                    </figure>
+
+                    <figure class="lisselton">
+                        <figcaption>PC DVD 3D Model</figcaption>
+                        <model-viewer
+                            alt="If you can see this, then your browser does not support scripts. It is supposed to be a  3D model of the video game Lisselton John Street Football 2k2 for the PC"
+                            src="{{ url_for('static', filename='3d_models/LJSF2k2_pc_dvd_case.glb') }}"
+                            shadow-intensity="1"
+                            camera-controls
+                            auto-rotate>
+                        </model-viewer>
+                    </figure>
+
+                    <figure class="lisselton">
+                        <figcaption>Playstation 1 3D model</figcaption>
+                        <model-viewer
+                            alt="If you can see this, then your browser does not support scripts. It is supposed to be a  3D model of the video game Lisselton John Street Football 2k2 for the Playstation 1"
+                            src="{{ url_for('static', filename='3d_models/LJSF2k2_ps1_case.glb') }}"
+                            shadow-intensity="1"
+                            camera-controls
+                            auto-rotate>
+                        </model-viewer>
+                    </figure>
+                </div>
+        </section>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <main>
+
+        <h1>Assorted web projects</h1>
+
+
+        {% set count = 0 %}
+        {% for i in sites %}
+
+            <figure>
+                <img src = "{{ i['thumbnail'] }}" alt = "{{ i['alt'] }}">
+
+                <figcaption>
+                    <a href = "{{ i['url'] }}">
+                        {{ i['title'] }}
+                    </a>
+                </figcaption>
+            </figure>  
+        
+            {% set count = count + 1 %}
+            {% if count % 5 == 0 %}
+                <br>
+            {% endif %}
+            
+        {% endfor %} 
+
+
+        <h1>Always under construction... &#128119;</h1>
+        
+        <p>
+            I'm always looking to expand this page,
+            so if there are any projects you'd like to work on,
+            why not head to my <a href = "{{ url_for('contact')}}">contact page!</a> and drop me a line!
+        </p>
+
+    </main>
+
+{% endblock %}

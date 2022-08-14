@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<main>
+
+    <p>
+
+        {% for i in page_list %}
+            {{ i[1] }}
+            <br>
+        {% endfor %}    
+
+    </p>
+
+
+
+</main>
+
+
+{% endblock %}

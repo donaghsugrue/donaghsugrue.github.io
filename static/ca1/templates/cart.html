@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Shopping Cart</h1>
+
+    <table>
+
+        {% for item in cart %}
+
+            <tr>
+                <td>
+                    {{ item["title"] }}
+                </td>
+            </tr>
+
+        {% endfor %}
+
+        <tr>
+
+            <td colspan = "2">
+                TOTAL:
+            </td>
+
+            <td>
+                {{'%0.2f'| format( total )}}
+            </td>
+
+        </tr>
+    </table>
+
+    {% if message %}
+        {{ message }}
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <main>
+        <p>
+            Here are a collection of some of my favourite graphics that I've made, all edited between 2018 and 2021.
+            All content is either Creative Commons or self created, unless otherwise stated.
+        </p>
+
+
+        <!-- These for loops will cycle through each heading in graphics.sql and then a for loop within that will cycle through each subtable -->
+        {% for section in graphics %}
+
+            <section>
+
+                <h1>
+                    {{ section["title"] }}
+                </h1>
+                
+                <p>
+                    {{ section["description"] }}
+                </p>
+
+                <ul class = "images">
+
+                    {% for i in subtable %}
+
+                    <li>
+                        <a          href    =   "{{ url_for('static', filename = ''+i['href']) }}"   target="_blank">
+                            <img    src     =   "{{ url_for('static', filename = ''+i['src']) }}"
+                                    alt     =   "{{ i['alt'] }}"
+                                    title   =   "Click to open in a new tab">
+                        </a>
+                    </li>
+
+                    {% endfor %}
+                
+                </ul>
+
+            </section>
+
+        {% endfor %}
+
+    </main>
+
+{% endblock %}

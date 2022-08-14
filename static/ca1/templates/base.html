@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#9FB798"/>
+
+        <title>{{ title }}</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+
+        <header>
+            <a href="{{ url_for('home')}}">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="The company logo" title="Logo" id="logo">
+            </a>
+    
+            <nav class="headnav">
+                <ul class="headlist">
+                    <li class="headli"><a href="{{ url_for('home')}}">
+                            Home
+                        </a></li>
+                    <li class="headli"><a href="{{ url_for('library')}}">
+                            Library
+                        </a></li>
+
+
+                    {% if g.user %}
+                        {% if g.state == "artist" %}
+                            <!-- Only want to display if logged in as artist -->
+                            <li class="headli"><a href="{{ url_for('new')}}">
+                                    New
+                                </a></li>
+                            <li class="headli"><a href="{{ url_for('view_all')}}">
+                                    Releases
+                                </a></li>
+                        
+                        {% elif g.state == "fan" %}
+                            <!-- Only want to display if logged in as fan -->
+                            <li class="headli"><a href="{{ url_for('collection', user_id=g.user) }}">
+                                    Collection
+                                </a></li>
+                            
+                            <li class="headli"><a href="{{ url_for('cart')}}">
+                                    Cart ( {{ cart|length }} )
+                                </a></li>
+                            
+                        {% endif %}
+
+                        <li class="headli"><a href="{{ url_for('logout')}}">
+                            Logout
+                        </a></li>
+
+                    {% else %}
+
+                        <li class="headli"><a href="{{ url_for('artist_login')}}">
+                                Artist Login
+                            </a></li>
+                        <li class="headli"><a href="{{ url_for('fan_login')}}">
+                                Fan Login
+                            </a></li>
+                        <li class="headli"><a href="{{ url_for('artist_registration')}}">
+                                Artist Registration
+                            </a></li>
+                        <li class="headli"><a href="{{ url_for('fan_registration')}}">
+                                Fan Registration
+                            </a></li>
+                    
+                    {% endif %}
+
+                    <li class="headli"><a href="{{ url_for('contact')}}">
+                            Contact
+                        </a></li>
+
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+            {% block main_content %}
+
+            {% endblock %}
+
+        </main>
+
+
+        <footer>
+            <nav class = "footernav">
+                <ul>
+                    <li>
+                        <a href="{{ url_for('home')}}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ url_for('about')}}">
+                            About
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="{{ url_for('contact')}}">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <small>
+                &copy; 2022 Donagh Sugrue. All rights reserved.
+            </small>
+    
+        </footer>
+    </body>
+</html>

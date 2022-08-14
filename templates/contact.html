@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <p>
+        If you'd like to learn more about my history as an artist or my professional history, feel free to reach out on social media.
+        I'm always happy to hear from people about collaboration opportunities.
+
+        If you'd prefer, you can also use the form below to contact me. Or just air out some of your feelings.
+        My email form is free and confidential - and, hey, it might be good for you!
+    </p>
+
+    <!-- https://realpython.com/python-send-email/#sending-a-plain-text-email -->
+    <form action="" method="POST" novalidate>
+
+        {{ form.hidden_tag() }}
+
+        <caption>
+            <h1>{{ caption }}</h1>
+        </caption>
+
+        {{ form.name.label }}
+        {{ form.name() }}
+
+        {% for error in form.name.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br />
+
+        {{ form.email.label }}
+        {{ form.email() }}
+
+        {% for error in form.email.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br />
+
+        {{ form.subject.label }}
+        {{ form.subject() }}
+
+        {% for error in form.subject.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br />
+
+        {{ form.message.label }}
+        {{ form.message() }}
+
+        {% for error in form.message.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br />
+
+        {{ form.submit() }}
+
+        {% if message %}
+            <p>
+                {{ message }}
+            </p>
+        {% endif %}
+
+    </form>
+
+{% endblock %}

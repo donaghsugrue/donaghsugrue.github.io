@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<section>
+
+    <h1>Gameplay instructions</h1>
+    <p>
+        You are a knight tasked with finding the treasure at the top of a castle.
+        <br>
+        Inside the castle there are ghouls. If they see you, they will be hell bent on destroying you.
+        <br>
+        Use either <i>W, A, S, D</i> or <i>arrow up, arrow left, arrow down, arrow right</i> to navigate yourself.
+        <br>
+        Hold <i>E</i> and collide with an enemy to attack it.
+        <br>
+        Hold <i>E</i> and collide with a treasure chest to get one of a few different items.
+        <br>
+        Room by room you have to make it past all of the enemies that are moving toward you.
+        <br>
+        Your score is based on how many rooms your traverse, how many enemies you kill, how much treasure you find, and how long it takes you to reach the top of the castle.
+        <br>
+        Good luck!
+
+    </p>
+
+    <p>
+        If the game is too tricky, try this cheat code: <i>iwantnobaddies</i>
+    </p>
+
+    <form action="" method="POST" novalidate>
+
+        {{ form.hidden_tag() }}
+
+        {{ form.initial.label }}
+        {{ form.initial() }}
+        <br/>
+        {% for error in form.initial.errors %}
+            {{ error }}
+        {% endfor %}
+
+        <br/>
+
+        {{ form.submit() }}
+
+        <p>{{ error }}</p>
+
+    </form>
+</section>
+
+{% endblock %}

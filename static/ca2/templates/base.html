@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#422835"/>
+
+        <title>{{ title }}</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="{{ url_for('static', filename='scripts.js') }}" type="module"></script>
+        
+    </head>
+    <body>
+
+        <header>
+            <a href="{{ url_for('index')}}">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="The company logo" title="Logo" id="logo">
+            </a>
+
+        </header>
+
+        <main>
+
+            {% block main_content %}
+
+            {% endblock %}
+
+        </main>
+
+
+        <footer>
+    
+            <small>
+                &copy; 2022 Donagh Sugrue. All rights reserved.
+            </small>
+    
+        </footer>
+    </body>
+</html>

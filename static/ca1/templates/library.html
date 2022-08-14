@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block main_content%}
+
+    <form action="" method="post" novalidate>
+
+        {{ form.hidden_tag() }}
+
+        {{ form.artist.label }}
+        {{ form.artist() }}
+
+        <br>
+
+        {{ form.submit() }}
+
+    </form>
+
+    <table>
+
+        {% for item in display_library %}
+        
+            <tr> 
+                <td rowspan = 3>
+                    <a href = "{{ url_for('listing', code=item['code']) }}">
+                        <figure>
+                            <img src = "{{ url_for('static', filename = ''+item['artwork']) }}" alt = "album artwork for {{ item['title'] }}">
+                            <!-- I know StackOverflow is outdated for jinja / flask, but the info from this article was the only way I was successfully able to call an image URL as I did above
+                                https://stackoverflow.com/questions/46869890/how-do-i-put-a-url-for-function-inside-of-a-jinja2-for-loop-if-there-are-two-bra -->
+                        </figure>
+                    </a>
+                </td>
+
+                <td>
+                    <h1>
+                        <a href = "{{ url_for('listing', code=item['code']) }}">
+                            {{ item["title"] }}
+                        </a>
+                    </h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h2>
+                            {{ item["artist"] }}
+                    </h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    €{{'%0.2f'| format(item["price"])}} / {{ item["format"] }}
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    - - -
+                </td>
+            </tr>
+        
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

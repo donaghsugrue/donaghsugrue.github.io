@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <main>
+
+        <h1>{{ error_message }}</h1>
+
+
+        <p id="sorry">
+            Sorry chief, this page doesn't exist. Hit the below button to be brought back home.
+        </p>
+        <a href="{{ url_for( 'index' )}}">
+            <input
+                type="button"
+                value="Bring me home please!"
+                id="bring_me_home">
+        </a>
+        <audio
+            autoplay
+            loop
+            id = "girl_from">
+            <source
+                src="{{ url_for('static', filename='media\Girl_From_Ipanema.wav') }}"
+                type="audio/wav">
+            Imagine some elevator music here.
+        </audio>
+
+    </main>
+
+{% endblock %}

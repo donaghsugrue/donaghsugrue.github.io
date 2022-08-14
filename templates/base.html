@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+
+
+
+<html lang="en" prefix="og: https://ogp.me/ns#">
+
+
+
+    <head>
+
+        <!-- TITLE & SETUP -->
+        <title>{{ title }} | Donagh Sugrue</title>
+        <meta charset="utf-8">
+
+
+
+        <!-- SEO & SEARCH ENGINE -->
+        <meta name="keywords" content="donagh, sugrue, messyng, eldritch, abomination, eldritchabomination teletext, records, teletextrecords">
+        <meta name="google" content="notranslate">
+
+
+
+        <!-- SOCIAL PREVIEWS & THUMBNAILS -->
+        <meta property="og:title" content="{{ title }} | Donagh Sugrue"/>
+        <meta property="og:site_name" content="{{ title }} | Donagh Sugrue"/>
+        <meta property="og:description" content="{{ title }} | Donagh Sugrue"/>
+        <meta property="og:url" content="________" />
+        <meta property="og:image" content="________"/>
+        <meta name="twitter:card" content="summary"/>
+
+
+
+        <!-- STYLESHEETS & DESIGN-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#2b2b2b"/>
+        
+
+
+
+
+
+
+
+        <!-- SCRIPTS -->
+        <script src="{{ url_for('static', filename='scripts.js') }}" type="module"></script>
+
+
+        <!-- FIX THIS, I WANT THE IF FUNCTION TO DETERMINE THE URL -->
+        <!-- <script src="/static/assorted_js_projects/sketch.js" type="module"></script>
+        {% if javascript %}
+            <script src="{{ url_for('static', filename='{{ javascript }}') }}" type="module"></script>
+        {% endif %} -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+        <script src ="{{ url_for('static', filename='assorted_js_projects/sketch.js') }}"></script> -->
+
+
+        <script src ="{{ url_for('static', filename='assorted_js_projects/particles.js') }}" type = "module"></script>
+
+
+
+
+
+
+
+        <!-- Google model viewer -->
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    </head>
+
+
+
+    <body>
+        <header>
+
+
+
+            <!-- make corner logo swing in relation to the mouse cursor-->
+
+                <a href="{{ url_for('index')}}">
+
+                    <div id = "ex1" class = "container">
+                        <img src="{{ url_for('static', filename='media/logoplaceholder.svg') }}" alt="The company logo" title="Logo" id="logo" class = "box">
+                    
+                    </div>
+
+
+                <!-- <model-viewer
+                            alt="If you can see this, then your browser does not support scripts. It is supposed to be a 3D model of the video game Lisselton John Street Football 2k2 for the Gameboy Advance"
+                            src="{{ url_for('static', filename='3d_models/LJSF2k2_gameboy_advance_case.glb') }}"
+                            shadow-intensity="1"
+                            camera-controls>
+                </model-viewer> -->
+
+
+                </a>
+
+
+
+
+            <nav class="headnav">
+
+                <ul class="headlist">
+
+                    <li class="headli">
+                        <a href="{{ url_for('index')}}" 
+                            {% if title == "Home" %}
+                                class="current"
+                            {% endif %}>
+                                Home
+                        </a>
+                    </li>
+                    
+                    <li class="headli">
+                        <a href="{{ url_for('python')}}" 
+                            {% if title == "Python" %}
+                                class="current"
+                            {% endif %}>
+                                Python
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('javascript')}}" 
+                            {% if title == "Javascript" %}
+                                class="current"
+                            {% endif %}>
+                                Javascript
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('games')}}" 
+                            {% if title == "Games" %}
+                                class="current"
+                            {% endif %}>
+                                Games
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('web')}}"
+                            {% if title == "Web" %}
+                                class="current"
+                            {% endif %}>
+                                Web
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('graphics')}}" 
+                            {% if title == "Graphics" %}
+                                class="current"
+                            {% endif %}>
+                                Graphics
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('threed')}}"
+                            {% if title == "3D" %}
+                                class="current"
+                            {% endif %}>
+                                3D
+                        </a>
+                    </li>
+                    
+                    <li class="headli">
+                        <a href="{{ url_for('audio')}}"
+                            {% if title == "Audio" %}
+                                class="current"
+                            {% endif %}>
+                                Audio
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('video')}}"
+                            {% if title == "Video" %}
+                                class="current"
+                            {% endif %}>
+                                Video
+                        </a>
+                    </li>
+                
+                    <li class="headli">
+                        <a href="{{ url_for('assorted')}}"
+                            {% if title == "Assorted" %}
+                                class="current"
+                            {% endif %}>
+                                Assorted
+                        </a>
+                    </li>
+
+                    <li class="headli">
+                        <a href="{{ url_for('contact')}}"
+                            {% if title == "Contact" %}
+                                class="current"
+                            {% endif %}>
+                                Contact
+                        </a>
+                    </li>
+
+
+
+                    <li class="headli">
+                        <button
+                            id = "dark_mode_toggle"
+                            class = "dark_mode_toggle"
+                            aria-label = "toggle dark mode"
+                            aria-checked = "false"
+                            
+                            
+                            >
+                        </button>
+                        Enable dark-mode
+                    </li>
+
+
+                    <!-- class = "checkbox"
+                    role = "switch"
+                    
+                    id = "dark_mode" -->
+
+
+
+                    <!-- <li class="headli">
+                        <button
+                            class = "checkbox"
+                            role = "switch"
+                            aria-checked="false">
+                        </button>
+                        Gaeilge
+                    </li> -->
+
+                </ul>
+
+            </nav>
+
+        </header>
+
+
+
+        <main>
+
+            <p id = "co-ords"><!-- Just for testing. Co-ordinates will show here for mouse position is turned on in scripts.js--></p>
+
+            {% block main_content %}
+
+
+
+
+
+
+
+
+
+
+            {% endblock %}
+
+        </main>
+
+
+
+        <footer>
+            <nav>
+                <a href="https://www.facebook.com/donaghsugrue" target="_blank">
+                    <figure>
+                        <img src="{{ url_for('static', filename='media/facebook_clipart.png') }}" class="logoLink">
+                        <figcaption>
+                            Facebook
+                        </figcaption>
+                    </figure>
+                </a>
+                        
+                <a href="https://www.instagram.com/donaghsugrue/" target="_blank">
+                    <figure>   
+                        <img src="{{ url_for('static', filename='media/instagram_clipart.png') }}" class="logoLink">
+                        <figcaption>
+                            Instagram
+                        </figcaption>
+                    </figure>
+                </a>
+
+                <a href="https://mastodon.ie/web/@donaghsugrue" target="_blank">
+                    <figure>
+                        <img src="{{ url_for('static', filename='media/mastodon_clipart.png') }}" class="logoLink">
+                        <figcaption>
+                            Mastodon
+                        </figcaption>
+                    </figure>
+                </a>
+
+                <a href="https://github.com/donaghsugrue/" target="_blank">
+                    <figure>
+                        <img src="{{ url_for('static', filename='media/github_clipart.png') }}" class="logoLink">
+                        <figcaption>
+                            Github
+                        </figcaption>
+                    </figure>
+                </a>
+                            
+                <a href="https://www.linkedin.com/in/donagh-sugrue-46b8397b/" target="_blank">
+                    <figure>
+                        <img src="{{ url_for('static', filename='media/linkedin_clipart.png') }}" class="logoLink">
+                        <figcaption>
+                            Linkedin
+                        </figcaption>
+                    </figure>
+                </a>
+                            
+                <a href="mailto:donaghsugrue@gmail.com" target="_blank">
+                    <figure>
+                        <img src="{{ url_for('static', filename='media/email_clipart.png') }}" class="logoLink">
+                        <figcaption>
+                            Email
+                        </figcaption>
+                    </figure>
+                </a>
+                
+            </nav>
+    
+            {% if g.year %}
+
+                <small>
+                    
+                        &copy; {{ g.year }} Donagh Sugrue. All rights reserved.
+            
+                </small>
+
+            {% endif %}
+    
+        </footer>
+
+
+
+    </body>
+
+
+</html>

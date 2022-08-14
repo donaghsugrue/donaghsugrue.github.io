@@ -1,0 +1,6 @@
+API_key = "6pXv8uhDQAeTSkbHfef8zlRl2"
+API_key_secret = "0saLhwzuCC5QPFo3GhnyPalPBxPBztOqZjmQLqPS12qH9TWrn9"
+brearer_token = "AAAAAAAAAAAAAAAAAAAAACl6ZAEAAAAA4xlf6zQndyAY6mwm9G7SZupt9sk%3D1VAoww7HbdXFcVMA75zHLuWOTP2jLjMA0v0EUCYnuPbbQ4Ct3L"
+
+client_ID = "aXU0MFV4Z3hYSkRJMndFUzNDNDU6MTpjaQ"
+client_secret = "eH1OSIziX2Hg5xKL-f-zUZsfvHTlgKk2t97JjF3n0Fm4jq-lj0"
